@@ -16,7 +16,7 @@
  
  int main() {
     int room, choice;
-    printf("Enter the no of rooms:%d");
+    printf("Enter the no of rooms:");
     scanf("%d",&room);
     int arr[4][room];
     int l=24;
@@ -42,7 +42,7 @@
     initializeSystem(room,arr[4][room]);
     displayMenu();
     while(1){
-        printf("Enter your choice: %d");
+        printf("Enter your choice:");
         scanf("%d",&choice);
         switch (choice)
         {
