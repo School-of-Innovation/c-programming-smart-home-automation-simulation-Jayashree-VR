@@ -1,9 +1,6 @@
 #include <stdio.h>
-#include<stdlib.h>
 #include<string.h>
-#include<time.h>
 
-#define MAX_ROOMS 5  //  max number of rooms
  
  // Function prototypes
  void initializeSystem();
@@ -27,7 +24,7 @@
                 arr[i][j]=0;
             }
             else if (i=2){
-                arr[i][j]=(rand()%(h-l+1))+l;
+                arr[i][j]=i+j+24;
             }
             else if(i=3){
                 arr[i][j]=0;
@@ -37,12 +34,12 @@
             }
         }
     }
-    int arr_cpy[4][room];
-    memcpy(arr_cpy,arr,sizeof(arr));
     initializeSystem(room,arr[4][room]);
     displayMenu();
+    int arr_cpy[4][room];
+    memcpy(arr_cpy,arr,sizeof(arr));
     while(1){
-        printf("Enter your choice:");
+        printf("Enter your choice: ");
         scanf("%d",&choice);
         switch (choice)
         {
@@ -85,7 +82,12 @@
  
  void displayMenu() {
     printf("=====SMART HOME MENU=====");
-    printf("1. Toggle Light \n 2. Read Temperature \n 3. Check Motion Sensor  \n 4. Lock \ Unlock Security System \n 5. Home Status Summary  \n 6. Exit");
+    printf("1. Toggle Light");
+    printf("2. Read Temperature");
+    printf("3. Check Motion Sensor");
+    printf("4. Lock or Unlock Security System");
+    printf("5. Home Status Summary");
+    printf("6. Exit");
     
  }
  void controlLights(int room,int arr[4][room]) {
@@ -156,7 +158,10 @@
  void analyzeHouseStatus(int room, int arr[4][room]) {
     printf("House Status:\n");
         for(int j=0;j<room;j++){
-            printf("Room %d : Light %s , Temp %dC, %s , %s ",j,arr[0][j], (arr[0][j] == 0) ? "OFF" : "On",arr[1][j],arr[2][j], (arr[2][j] == 0) ? "No Movement Detected" : "Movement Detected",arr[3][j], (arr[3][j] == 0) ? "Door Is Not Locked" : "Door Is Locked" );
+            printf("Room %d : Light %s , Temp %dC, %s , %s ",j,arr[0][j], 
+             (arr[0][j] == 0) ? "OFF" : "On",arr[1][j],arr[2][j], 
+             (arr[2][j] == 0) ? "No Movement Detected" : "Movement Detected",arr[3][j], 
+             (arr[3][j] == 0) ? "Door Is Not Locked" : "Door Is Locked" );
 
         }
  }
