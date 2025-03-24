@@ -22,7 +22,7 @@
                 arr[i][j]=0;
             }
             else if (i==1){
-                arr[i][j]=(i+3)*j*10;
+                arr[i][j]=(i+j+6)*9;
             }
             else if(i==2){
                 arr[i][j]=0;
@@ -108,7 +108,7 @@
     scanf(" %d",&r_temp);
     printf("The temperature is %dC \n",arr[1][r_temp-1]);
     if(arr[1][r_temp-1]>30){
-        printf("Warning! The room %d is %dC !!!",r_temp,arr[1][r_temp-1]);
+        printf("Warning! The room %d is above 30C!!!",r_temp);
     }
 
  }
@@ -139,11 +139,11 @@
     scanf(" %d",&r_lock);
     lock_status=arr[3][r_lock-1];
     if(lock_status==0){
-        arr[3][r_lock]=1;
+        arr[3][r_lock-1]=1;
         printf("The door of room %d is locked.",r_lock);
     }
     else{
-        arr[3][r_lock]=0;
+        arr[3][r_lock-1]=0;
         printf("The door of room %d is Unlocked.",r_lock);
         }
 
